@@ -1,1 +1,19 @@
-
+apiVersion: apps
+kind: Deployment
+metadata:
+  name: catering-backend
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: catering
+  template:
+    metadata: 
+      labels:
+        app: catering
+    spec:
+      containers:
+      - name: backend
+        image: catering-platform:latest
+      ports:
+      - containerPort: 3000
